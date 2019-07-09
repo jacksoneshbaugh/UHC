@@ -47,6 +47,9 @@ Configuration
 			-Material
 	-Use Leveling
 	
+Scoreboard
+	-Scoreboard.yml is configuration for both Scoreboards (In Game and Hub)
+	
 Language
 	-Configure all messages
 	
