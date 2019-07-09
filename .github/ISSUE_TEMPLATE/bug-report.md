@@ -10,6 +10,10 @@ assignees: ''
 **Describe the bug**
 A clear and concise description of what the bug is.
 
+**Message**
+What error message does the plugin give? (From the grey line to the grey line)
+
+
 **To Reproduce**
 Steps to reproduce the behavior:
 
