@@ -1,0 +1,57 @@
+UHC
+
+Arenas
+	-Multi-Arena
+	-Each arena has a world.
+	-Worlds are re-generated each time.
+	-simple one-command to create arena (/uhcadmin createarena <type> (teams or solo))
+	-stored in arenas.yml file.
+	-on disable, should delete all arena worlds.
+	
+Hub
+	-Set hub by using /uhcadmin sethub (gets world & location)
+	-Set NPCs by using /uhcadmin setnpc <type> (solo, teams, stats)
+	-All data saved in hub.yml
+	-Scoreboard
+
+Stats
+	-Save the below for teams and solo:
+		-Wins
+		-Losses
+		-Kills
+		-Deaths
+		-K/D
+		-W/L
+		-Games Played
+	-Shown in a GUI on /uhc stats or on click of the stats NPC (GUI Configurable in config.yml)
+	-Stats stored in stats.yml, loaded as a Stats object when the user joins, in the User object linked with the player.
+
+In-Game
+	-Player drops head on death.
+	-Head can be crafted with 8 golden apples to create a golden head.
+	-Scoreboard
+		-Updates Every Second
+
+Configuration
+	-(All of the below can be configured)
+	-Arena Game Time (time until deathmatch)
+	-Arena Deathmatch time (time until draw) (set to -1 to disable draws)
+	-Teams and Solo arena player counts
+	-Enable golden heads
+	-NPC Skins
+	-NPC Names
+	-Stats GUI
+		-Items
+			-Name
+			-Lore
+			-Material
+	-Use Leveling
+	
+Language
+	-Configure all messages
+	
+API
+	-Check Stats
+	-Add player into game queue
+	-Remove player from game queue
+	
