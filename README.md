@@ -1,2 +1,4 @@
 # UHC
- Minecraft Plugin for UHC Servers.
+ Minecraft Plugin adding functionality for a UHC (Ultra-Hardcore) gamemode.
+ 
+ 
