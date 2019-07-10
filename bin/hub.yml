@@ -1,0 +1,17 @@
+# You shouldn't need to type anthing in here; just use the commands listed to set these values!
+
+# Location to teleport players to on server join and on game end. (USE /uhcadmin sethub)
+location:
+
+##------------(NPCS)---------------##
+
+# Location of the solo NPC that players use to queue for a game. (USE /uhcadmin setnpc solo)
+solo-npc-location:
+
+# Location of the teams NPC that players use to queue for a game. (USE /uhcadmin setnpc teams)
+teams-npc-location:
+
+# Location of the stats NPC that players use to view the stats GUI. (USE /uhcadmin setnpc stats)
+stats-npc-location:
+
+##---------------------------------##

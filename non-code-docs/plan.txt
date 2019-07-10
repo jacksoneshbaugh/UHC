@@ -1,12 +1,7 @@
 UHC
 
 Arenas
-	-Multi-Arena
-	-Each arena has a world.
-	-Worlds are re-generated each time.
-	-simple one-command to create arena (/uhcadmin createarena <type> (teams or solo))
-	-stored in arenas.yml file.
-	-on disable, should delete all arena worlds.
+	Creates worlds and arenas on demand. Nothing is (or needs to be) saved here.
 	
 Hub
 	-Set hub by using /uhcadmin sethub (gets world & location)
@@ -36,6 +31,8 @@ Configuration
 	-(All of the below can be configured)
 	-Arena Game Time (time until deathmatch)
 	-Arena Deathmatch time (time until draw) (set to -1 to disable draws)
+	-Border Shrink Time
+	-Border Shrink Interval
 	-Teams and Solo arena player counts
 	-Enable golden heads
 	-NPC Skins

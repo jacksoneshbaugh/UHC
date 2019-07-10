@@ -17,15 +17,33 @@ public class LoggerManager {
 
 	public void LogInfo(String s) {
 		Bukkit.getServer().getLogger()
+				.info(ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "---------------------------"
+						+ ChatColor.GOLD + "" + ChatColor.BOLD + "UHC" + ChatColor.DARK_GRAY + ""
+						+ ChatColor.STRIKETHROUGH + "--------------------------");
+		Bukkit.getServer().getLogger()
+				.info(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "(*) UHC Returned some Information (*)");
+		Bukkit.getServer().getLogger().info(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + s);
+		Bukkit.getServer().getLogger()
+				.info(ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "---------------------------"
+						+ ChatColor.GOLD + "" + ChatColor.BOLD + "UHC" + ChatColor.DARK_GRAY + ""
+						+ ChatColor.STRIKETHROUGH + "--------------------------");
+	}
+
+	public void LogError(String s) {
+		Bukkit.getServer().getLogger()
 				.severe(ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "---------------------------"
 						+ ChatColor.GOLD + "" + ChatColor.BOLD + "UHC" + ChatColor.DARK_GRAY + ""
 						+ ChatColor.STRIKETHROUGH + "--------------------------");
-		Bukkit.getServer().getLogger().info(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "(*) UHC returned some information (*)");
-		Bukkit.getServer().getLogger().info(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + s);
+		Bukkit.getServer().getLogger().severe(ChatColor.RED + "" + ChatColor.BOLD + "(!) UHC Returned an Error (!)");
+		Bukkit.getServer().getLogger().severe(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + s);
 		Bukkit.getServer().getLogger()
-		.severe(ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "---------------------------"
-				+ ChatColor.GOLD + "" + ChatColor.BOLD + "UHC" + ChatColor.DARK_GRAY + ""
-				+ ChatColor.STRIKETHROUGH + "--------------------------");
+				.severe(ChatColor.RED + "" + ChatColor.BOLD + "If you need help, make an issue on the issue tracker:");
+		Bukkit.getServer().getLogger()
+				.severe(ChatColor.GOLD + "" + ChatColor.BOLD + "https://github.com/JavaGuy12/UHC/issues");
+		Bukkit.getServer().getLogger()
+				.severe(ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "---------------------------"
+						+ ChatColor.GOLD + "" + ChatColor.BOLD + "UHC" + ChatColor.DARK_GRAY + ""
+						+ ChatColor.STRIKETHROUGH + "--------------------------");
 	}
 
 	public void LogException(Exception e) {

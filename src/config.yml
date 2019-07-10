@@ -1,0 +1,16 @@
+# UHC Config File | Look above each entry for its explanation.
+
+games:
+  # This is the time until deathmatch begins in arenas. 
+  # Type: Integer
+  # Extra: Measured in minutes.
+  # Default: 60
+  game-time: 60
+  # This is the time until deathmatch ends, and a draw is declared. 
+  # Type: Integer
+  # Extra: Measured in minutes; set to -1 to disable draws and have an infinite deathmatch.
+  # Default: -1
+  deathmatch-time: -1
+
+# DON'T TOUCH THIS
+version: 1
