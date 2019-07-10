@@ -3,3 +3,5 @@ main: me.itguy12.uhc.Main
 version: Beta 1.0.0
 author: ITGuy12
 softdepend: [ParticleLIB, TitleAPI, ActionBarAPI, Vault]
+commands:
+  
