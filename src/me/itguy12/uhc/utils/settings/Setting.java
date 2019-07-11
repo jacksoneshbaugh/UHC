@@ -1,5 +1,6 @@
 package me.itguy12.uhc.utils.settings;
 
+import me.itguy12.uhc.utils.FileManager;
 import me.itguy12.uhc.utils.FileType;
 
 public class Setting {
@@ -29,6 +30,12 @@ public class Setting {
 
 	public Object getValue() {
 		return path;
+	}
+	
+	public void write() {
+		
+		FileManager.get().set(FileType.CONFIG, path, defaultValue);
+		
 	}
 
 	public boolean hasBeenModified() {

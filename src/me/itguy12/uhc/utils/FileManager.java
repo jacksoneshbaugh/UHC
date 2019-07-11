@@ -10,6 +10,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import me.itguy12.uhc.Main;
+import me.itguy12.uhc.utils.settings.SettingsManager;
 
 public class FileManager {
 
@@ -53,18 +54,93 @@ public class FileManager {
 
 	}
 
-	public void loadYaml(Main p) {
+	@SuppressWarnings("unchecked")
+	public <T> T get(FileType type, String path) {
+		switch (type) {
 
+		case CONFIG:
+			return (T) config.get(path);
+		case SCOREBOARD:
+			return (T) scoreboard.get(path);
+		case STATS:
+			return (T) stats.get(path);
+		case LANG:
+			return (T) lang.get(path);
+		case HUB:
+			return (T) hub.get(path);
+		}
+		return null;
+	}
+	
+	
+	public void set(FileType type, String path, Object value) {
+		switch (type) {
+
+		case CONFIG:
+			config.set(path, value);
+			try {
+				config.save(configF);
+			} catch (IOException e) {
+				LoggerManager.get().LogException(e);
+			}
+			return;
+		case SCOREBOARD:
+			scoreboard.set(path, value);
+			try {
+				scoreboard.save(scoreboardF);
+			} catch (IOException e) {
+				LoggerManager.get().LogException(e);
+			}
+			return;
+		case STATS:
+			stats.set(path, value);
+			try {
+				stats.save(statsF);
+			} catch (IOException e) {
+				LoggerManager.get().LogException(e);
+			}
+			return;
+		case LANG:
+			lang.set(path, value);
+			try {
+				lang.save(langF);
+			} catch (IOException e) {
+				LoggerManager.get().LogException(e);
+			}
+			return;
+		case HUB:
+			hub.set(path, value);
+			try {
+				hub.save(hubF);
+			} catch (IOException e) {
+				LoggerManager.get().LogException(e);
+			}
+			return;
+		}
+	}
+
+	public void loadYaml(Main p) {
+		boolean updateConfig = false;
+		
 		// Load config.yml
 		configF = new File(p.getDataFolder(), "config.yml");
 		config = YamlConfiguration.loadConfiguration(configF);
-
+		
+		// log the old settings in case of update
+		if (configF.exists()) {
+			SettingsManager.get().grabSettings();
+		}
+		
+		if(config.getInt("version") != configVersion) {
+			updateConfig = true;
+		}
+		
 		if (!configF.exists() || config.getInt("version") != configVersion) {
 			InputStream in = p.getResource("config.yml");
 			try {
 				FileUtils.copyInputStreamToFile(in, configF);
 				LoggerManager.get().LogInfo(
-						"File config.yml not found or outdated; copying new file. You will have to reconfigure this file.");
+						"File config.yml not found or outdated; copying new file.");
 			} catch (IOException e) {
 				LoggerManager.get().LogException(e);
 				return;
@@ -72,7 +148,13 @@ public class FileManager {
 		}
 
 		config = YamlConfiguration.loadConfiguration(configF);
-
+		
+		
+		if(updateConfig) {
+			SettingsManager.get().copyOldSettings();
+		}
+		
+		
 		// Load scoreboard.yml
 		scoreboardF = new File(p.getDataFolder(), "scoreboard.yml");
 		scoreboard = YamlConfiguration.loadConfiguration(scoreboardF);
@@ -90,7 +172,7 @@ public class FileManager {
 		}
 
 		scoreboard = YamlConfiguration.loadConfiguration(scoreboardF);
-		
+
 		// Load stats.yml
 		statsF = new File(p.getDataFolder(), "stats.yml");
 		stats = YamlConfiguration.loadConfiguration(statsF);
@@ -109,7 +191,6 @@ public class FileManager {
 
 		stats = YamlConfiguration.loadConfiguration(statsF);
 
-		
 		// Load lang.yml
 		langF = new File(p.getDataFolder(), "lang.yml");
 		lang = YamlConfiguration.loadConfiguration(langF);

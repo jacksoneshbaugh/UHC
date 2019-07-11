@@ -3,7 +3,9 @@ package me.itguy12.uhc.utils.settings;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import me.itguy12.uhc.utils.FileManager;
 import me.itguy12.uhc.utils.FileType;
+import me.itguy12.uhc.utils.LoggerManager;
 
 public class SettingsManager {
 
@@ -102,6 +104,23 @@ public class SettingsManager {
 
 	public void grabSettings() {
 
+		for (Setting setting : settings) {
+			if (FileManager.get().get(FileType.CONFIG, setting.getPath()) != null) {
+				setting.setValue(FileManager.get().get(FileType.CONFIG, setting.getPath()));
+			}
+		}
+
+	}
+
+	public void copyOldSettings() {
+		for (Setting setting : settings) {
+			if(setting.hasBeenModified()) {
+				setting.write();
+			}
+		}
+		
+		LoggerManager.get().LogInfo("Copied old settings to the updated configuration file.");
+		
 	}
 
 }

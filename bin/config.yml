@@ -24,7 +24,7 @@ games:
   # Type: Integer
   # Extra: n/a
   # Default: 25
-  solo-player-required: 25
+  solo-players-required: 25
 
   # This is how many players a solo arena caps at.
   # Type: Integer
@@ -163,7 +163,7 @@ chat:
     # %name% - The player's name.
     # %suffix% - player's suffix gathered by Vault.
     # %message% - the chat message sent.
-  # Default: "&8[&3&l%level%&e★&8] %prefix% %name% %suffix% &8&l> &e%message%"
+  # Default: "&6&l[SHOUT] &8[&3&l%level%&e★&8] %prefix% %name% %suffix% &8&l> &e%message%"
   shout-team-chat: "&6&l[SHOUT] &8[&3&l%level%&e★&8] %prefix% %name% %suffix% &8&l> &e%message%"
 
 # Configure the GUI for stats.
@@ -218,8 +218,8 @@ stats:
       # %teamlosses% - returns the number of teams losses.
       # %sololosses% - returns the number of solo losses.
     # Extra: Color Codes are allowed!
-    # Default: "&c&l%losses% &elosses"
-    name: "&c&l%losses% &elosses"
+    # Default: "&c&l%losses% &eLosses"
+    name: "&c&l%losses% &eLosses"
 
     # What should the item's lore be?
     # Type: List<String>
@@ -241,7 +241,7 @@ stats:
     # What item should be displayed for the category? (USE https://hub.spigotmc.org/javadocs/spigot/index.html?overview-summary.html)
     # Type: Material
     # Extra: N/a
-    # Default: DIAMOND
+    # Default: IRON_SWORD
     item: IRON_SWORD
     
     # What should the item's name be?
@@ -275,7 +275,7 @@ stats:
     # What item should be displayed for the category? (USE https://hub.spigotmc.org/javadocs/spigot/index.html?overview-summary.html)
     # Type: Material
     # Extra: N/a
-    # Default: DIAMOND
+    # Default: DIAMOND_SWORD
     item: DIAMOND_SWORD
     
     # What should the item's name be?
@@ -308,8 +308,8 @@ stats:
     # What item should be displayed for the category? (USE https://hub.spigotmc.org/javadocs/spigot/index.html?overview-summary.html)
     # Type: Material
     # Extra: N/a
-    # Default: DIAMOND
-    item: DIAMOND
+    # Default: GOLD_INGOT
+    item: GOLD_INGOT
     
     # What should the item's name be?
     # Type: String
@@ -341,7 +341,7 @@ stats:
     # What item should be displayed for the category? (USE https://hub.spigotmc.org/javadocs/spigot/index.html?overview-summary.html)
     # Type: Material
     # Extra: N/a
-    # Default: DIAMOND
+    # Default: PAPER
     item: PAPER
     
     # What should the item's name be?
