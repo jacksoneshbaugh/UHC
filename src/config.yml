@@ -1,16 +1,372 @@
 # UHC Config File | Look above each entry for its explanation.
 
 games:
-  # This is the time until deathmatch begins in arenas. 
+
+  # This is the time until PvP is enabled.
   # Type: Integer
   # Extra: Measured in minutes.
-  # Default: 60
-  game-time: 60
-  # This is the time until deathmatch ends, and a draw is declared. 
+  # Default: 15
+  grace-period: 15
+
+  # This is the time until deathmatch begins in arenas.
+  # Type: Integer
+  # Extra: Measured in minutes.
+  # Default: 15
+  game-time: 15
+
+  # This is the time until deathmatch ends, and a draw is declared.
   # Type: Integer
   # Extra: Measured in minutes; set to -1 to disable draws and have an infinite deathmatch.
   # Default: -1
   deathmatch-time: -1
 
+  # This is how many players a solo arena requires to start the countdown process.
+  # Type: Integer
+  # Extra: n/a
+  # Default: 25
+  solo-players-required: 25
+
+  # This is how many players a solo arena caps at.
+  # Type: Integer
+  # Extra: n/a
+  # Default: 50
+  solo-player-cap: 50
+
+  # This is how many players a teams arena requires to start the countdown process.
+  # Type: Integer
+  # Extra: n/a
+  # Default: 50
+  teams-player-required: 50
+
+  # This is how many players a solo arena caps at.
+  # Type: Integer
+  # Extra: n/a
+  # Default: 100
+  teams-player-cap: 100
+
+  # Should Golden Heads be allowed (setting to false prevents players from dropping heads.)
+  # Type: Boolean
+  # Extra: N/a
+  # Default: true
+  head-drop: true
+
+
+
+# The border consistantly moves during the game time, and then makes it to the position for deathmatch at the end of the game time.
+border:
+
+  # This is how far out the border starts. The border starts its move after the grace period ends.
+  # Type: Integer
+  # Extra: Measured in blocks.
+  # Default: 500
+  border-start: 500
+
+  # This is where the border should stop. Keep in mind that putting 20 would actually make a 40x40 deathmatch arena, due to the negative coordanates.
+  # Type: Integer
+  # Extra: Measured in blocks.
+  # Default: 20
+  border-end: 20
+
+
+# Configuration for the NPCS to be used in the lobby (Stats, Solo, Teams)
+npcs:
+
+  # This is the name of the solo queue npc.
+  # Type: String
+  # Extra: Color Codes Allowed!
+  # Default: "&e&lUHC SOLO QUEUE"
+  solo-name: "&e&lUHC SOLO QUEUE"
+
+  # The skin that the solo queue NPC should use.
+  # Type: String
+  # Extra: Make sure it's an actual player name!
+  # Default: "firegamer_8"
+  solo-skin: "firegamer_8"
+
+  # This is the name of the solo queue npc.
+  # Type: String
+  # Extra: Color Codes Allowed!
+  # Default: "&e&lUHC TEAMS QUEUE"
+  team-name: "&e&lUHC TEAMS QUEUE"
+
+  # The skin that the solo queue NPC should use.
+  # Type: String
+  # Extra: Make sure it's an actual player name!
+  # Default: "firegamer_8"
+  team-skin: "firegamer_8"
+
+  # This is the name of the solo queue npc.
+  # Type: String
+  # Extra: Color Codes Allowed!
+  # Default: "&e&lUHC STATS"
+  stats-name: "&e&lUHC STATS"
+
+  # The skin that the solo queue NPC should use.
+  # Type: String
+  # Extra: Make sure it's an actual player name!
+  # Default: "AlanBrooke"
+  stats-skin: "AlanBrooke"
+
+leveling:
+
+  # Should UHC levels be enabled on the server?
+  # Type: Boolean
+  # Extra: N/a
+  # Default: true
+  enable: true
+
+
+chat:
+
+  # How should lobby chat be formatted?
+  # Type: String
+  # Extra: Color Codes are Allowed.
+  # Placeholders:
+    # %level% - if enabled, the UHC level.
+    # %prefix% - player's prefix gathered by Vault.
+    # %name% - The player's name.
+    # %suffix% - player's suffix gathered by Vault.
+    # %message% - the chat message sent.
+  # Default: "&8[&3&l%level%&e★&8] %prefix% %name% %suffix% &8&l> &e%message%"
+  lobby-chat: "&8[&3&l%level%&e★&8] %prefix% %name% %suffix% &8&l> &e%message%"
+
+  # How should solo game chat chat be formatted?
+  # Type: String
+  # Extra: Color Codes are Allowed.
+  # Placeholders:
+    # %level% - if enabled, the UHC level.
+    # %prefix% - player's prefix gathered by Vault.
+    # %name% - The player's name.
+    # %suffix% - player's suffix gathered by Vault.
+    # %message% - the chat message sent.
+  # Default: "&8[&3&l%level%&e★&8] %prefix% %name% %suffix% &8&l> &e%message%"
+  solo-chat: "&8[&3&l%level%&e★&8] %prefix% %name% %suffix% &8&l> &e%message%"
+
+  # How should team chat be formatted?
+  # Type: String
+  # Extra: Color Codes are Allowed.
+  # Placeholders:
+    # %level% - if enabled, the UHC level.
+    # %prefix% - player's prefix gathered by Vault.
+    # %name% - The player's name.
+    # %suffix% - player's suffix gathered by Vault.
+    # %message% - the chat message sent.
+  # Default: "&8[&3&l%level%&e★&8] %prefix% %name% %suffix% &8&l> &e%message%"
+  team-chat: "&9[TEAM] &8[&3&l%level%&e★&8] %prefix% %name% %suffix% &8&l> &e%message%"
+
+  # How should shout messages in team games be formatted?
+  # Type: String
+  # Extra: Color Codes are Allowed.
+  # Placeholders:
+    # %level% - if enabled, the UHC level.
+    # %prefix% - player's prefix gathered by Vault.
+    # %name% - The player's name.
+    # %suffix% - player's suffix gathered by Vault.
+    # %message% - the chat message sent.
+  # Default: "&6&l[SHOUT] &8[&3&l%level%&e★&8] %prefix% %name% %suffix% &8&l> &e%message%"
+  shout-team-chat: "&6&l[SHOUT] &8[&3&l%level%&e★&8] %prefix% %name% %suffix% &8&l> &e%message%"
+
+# Configure the GUI for stats.
+stats:
+  
+  # Control the wins item
+  wins:
+    
+    # What item should be displayed for the category? (USE https://hub.spigotmc.org/javadocs/spigot/index.html?overview-summary.html)
+    # Type: Material
+    # Extra: N/a
+    # Default: DIAMOND
+    item: DIAMOND
+    
+    # What should the item's name be?
+    # Type: String
+    # Placeholders:
+      # %wins% - returns the number of wins
+      # %teamwins% - returns the number of teams wins.
+      # %solowins% - returns the number of solo wins.
+    # Extra: Color Codes are allowed!
+    # Default: "&6&l%wins% &eWins"
+    name: "&6&l%wins% &eWins"
+
+    # What should the item's lore be?
+    # Type: List<String>
+    # Placeholders:
+      # %wins% - returns the number of wins.
+      # %teamwins% - returns the number of teams wins.
+      # %solowins% - returns the number of solo wins.
+    # Extra: Color Codes Allowed.
+    # Default: 
+    # - "&5You have &6&l%solowins% &5solo wins."
+    # - "&dYou have &6&l%teamwins% &dteam wins."
+    lore:
+    - "&5You have &6&l%solowins% &5solo wins."
+    - "&dYou have &6&l%teamwins% &dteam wins."
+
+  # Control the wins item
+  losses:
+    
+    # What item should be displayed for the category? (USE https://hub.spigotmc.org/javadocs/spigot/index.html?overview-summary.html)
+    # Type: Material
+    # Extra: N/a
+    # Default: BARRIER
+    item: BARRIER
+    
+    # What should the item's name be?
+    # Type: String
+    # Placeholders:
+      # %losses% - returns the number of losses
+      # %teamlosses% - returns the number of teams losses.
+      # %sololosses% - returns the number of solo losses.
+    # Extra: Color Codes are allowed!
+    # Default: "&c&l%losses% &eLosses"
+    name: "&c&l%losses% &eLosses"
+
+    # What should the item's lore be?
+    # Type: List<String>
+    # Placeholders:
+      # %losses% - returns the number of losses.
+      # %teamlosses% - returns the number of teams losses.
+      # %sololosses% - returns the number of solo losses.
+    # Extra: Color Codes Allowed.
+    # Default: 
+    # - "&5You have &c&l%sololosses% &5solo losses."
+    # - "&dYou have &c&l%teamlosses% &dteam losses."
+    lore:
+    - "&5You have &c&l%sololosses% &5solo losses."
+    - "&dYou have &c&l%teamlosses% &dteam losses."
+
+  # Control the kills item
+  kills:
+    
+    # What item should be displayed for the category? (USE https://hub.spigotmc.org/javadocs/spigot/index.html?overview-summary.html)
+    # Type: Material
+    # Extra: N/a
+    # Default: IRON_SWORD
+    item: IRON_SWORD
+    
+    # What should the item's name be?
+    # Type: String
+    # Placeholders:
+      # %kills% - returns the number of kills
+      # %teamkills% - returns the number of teams kills.
+      # %solokills% - returns the number of solo kills.
+    # Extra: Color Codes are allowed!
+    # Default: "&2&l%kills% &ekills"
+    name: "&2&l%kills% &ekills"
+
+    # What should the item's lore be?
+    # Type: List<String>
+    # Placeholders:
+      # %kills% - returns the number of kills.
+      # %teamkills% - returns the number of teams kills.
+      # %solokills% - returns the number of solo kills.
+    # Extra: Color Codes Allowed.
+    # Default: 
+    # - "&5You have &2&l%solokills% &5solo kills."
+    # - "&dYou have &2&l%teamkills% &dteam kills."
+    lore:
+    - "&5You have &2&l%solokills% &5solo kills."
+    - "&dYou have &2&l%teamkills% &dteam kills."
+
+
+  # Control the K/D R item
+  kdr:
+    
+    # What item should be displayed for the category? (USE https://hub.spigotmc.org/javadocs/spigot/index.html?overview-summary.html)
+    # Type: Material
+    # Extra: N/a
+    # Default: DIAMOND_SWORD
+    item: DIAMOND_SWORD
+    
+    # What should the item's name be?
+    # Type: String
+    # Placeholders:
+      # %kdr% - returns the number of kdr
+      # %teamkdr% - returns the number of teams kdr.
+      # %solokdr% - returns the number of solo kdr.
+    # Extra: Color Codes are allowed!
+    # Default: "&9&l%kdr% &ekdr"
+    name: "&9&l%kdr% &eK/D R"
+
+    # What should the item's lore be?
+    # Type: List<String>
+    # Placeholders:
+      # %kdr% - returns the number of kdr.
+      # %teamkdr% - returns the number of teams kdr.
+      # %solokdr% - returns the number of solo kdr.
+    # Extra: Color Codes Allowed.
+    # Default: 
+    # - "&5You have &9&l%solokdr% &5solo K/D R."
+    # - "&dYou have &9&l%teamkdr% &dteam K/D R."
+    lore:
+    - "&5You have a &9&l%solokdr% &5solo K/D R."
+    - "&dYou have a &9&l%teamkdr% &dteam K/D R."
+
+  # Control the wlr item
+  wlr:
+    
+    # What item should be displayed for the category? (USE https://hub.spigotmc.org/javadocs/spigot/index.html?overview-summary.html)
+    # Type: Material
+    # Extra: N/a
+    # Default: GOLD_INGOT
+    item: GOLD_INGOT
+    
+    # What should the item's name be?
+    # Type: String
+    # Placeholders:
+      # %wlr% - returns the number of wlr
+      # %teamwlr% - returns the number of teams wlr.
+      # %solowlr% - returns the number of solo wlr.
+    # Extra: Color Codes are allowed!
+    # Default: "&3&l%wlr% &eW/L R"
+    name: "&3&l%wlr% &eW/L R"
+
+    # What should the item's lore be?
+    # Type: List<String>
+    # Placeholders:
+      # %wlr% - returns the number of wlr.
+      # %teamwlr% - returns the number of teams wlr.
+      # %solowlr% - returns the number of solo wlr.
+    # Extra: Color Codes Allowed.
+    # Default: 
+    # - "&5You have &6&l%solowlr% &5solo wlr."
+    # - "&dYou have &6&l%teamwlr% &dteam wlr."
+    lore:
+    - "&5You have a &6&l%solowlr% &5solo W/L R."
+    - "&dYou have a &6&l%teamwlr% &dteam W/L R."
+
+  # Control the Games Played item
+  games:
+    
+    # What item should be displayed for the category? (USE https://hub.spigotmc.org/javadocs/spigot/index.html?overview-summary.html)
+    # Type: Material
+    # Extra: N/a
+    # Default: PAPER
+    item: PAPER
+    
+    # What should the item's name be?
+    # Type: String
+    # Placeholders:
+      # %games% - returns the number of games
+      # %teamgames% - returns the number of teams games.
+      # %sologames% - returns the number of solo games.
+    # Extra: Color Codes are allowed!
+    # Default: "&1&l%games% &eGames Played"
+    name: "&1&l%games% &eGames Played"
+
+    # What should the item's lore be?
+    # Type: List<String>
+    # Placeholders:
+      # %games% - returns the number of games.
+      # %teamgames% - returns the number of teams games.
+      # %sologames% - returns the number of solo games.
+    # Extra: Color Codes Allowed.
+    # Default: 
+    # - "&5You have &1&l%sologames% &5solo games."
+    # - "&dYou have &1&l%teamgames% &dteam games."
+    lore:
+    - "&5You have played &1&l%sologames% &5solo games."
+    - "&dYou have played &1&l%teamgames% &dteam games."
+    
 # DON'T TOUCH THIS
 version: 1
